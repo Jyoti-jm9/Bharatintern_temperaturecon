@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tstyles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="head">Temperature Converter</h1>
+    <div id="mid">
+       <input type="number"name="inp" id="inp" step="any">
+       <br>
+       <h3>From</h3>
+       <select id="sel1">
+           <option value="Celcius">Celcius</option>
+           <option value="Fahrenheit">Fahrenheit</option>
+           <option value="Kelvin">Kelvin</option>
+       </select>
+           <br>
+           <h3>To</h3>
+       <select id="sel2">
+        <option value="Celcius">Celcius</option>
+        <option value="Fahrenheit">Fahrenheit</option>
+        <option value="Kelvin">Kelvin</option>
+    </select>
+       <br>
+       <input type="text" name="" id="oup" step="">
+       <br>
+       <button onclick="cal()">calculate</button>
+</div>
+       <script>
+        function cal() {
+            var ope = parseInt(document.getElementById("inp").value);
+            var type1 = document.getElementById("sel1").value;
+            var type2 = document.getElementById("sel2").value;
+            var res;
+            if (type1 == type2) {
+                res = ope;
+            }
+            if (type1 === "Celcius" && type2 === "Fahrenheit") {
+                res = (ope * 1.8) + 32;
+            }
+            if (type2 == "Celcius" && type1== "Fahrenheit") {
+                res = (ope - 32) * 1.8;
+            }
+            if (type1 == "Celcius" && type2== "Kelvin") {
+                res = ope + 273.15;
+            }
+            if (type2 == "Celcius" && type1 == "Kelvin") {
+               res = ope-273.15
+            }
+           if (type1 == "Fahrenheit" && type2== "Kelvin") {
+            res = 273.15 + (ope-32) * (5/9);
+            }
+           if (type2 == "Fahrenheit" && type1 == "Kelvin") {
+            res = 32 + (ope - 273.15)*1.8;
+           }
+
+           document.getElementById("oup").value = res;
+           
+        }
+       </script>
+    
+</body>
+</html>
